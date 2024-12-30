@@ -200,7 +200,7 @@ package body ada_main is
    end adainit;
 
    procedure Ada_Main_Program;
-   pragma Import (Ada, Ada_Main_Program, "_ada_great_circle_distance");
+   pragma Import (Ada, Ada_Main_Program, "_ada_aviation_tools");
 
    function main
      (argc : Integer;

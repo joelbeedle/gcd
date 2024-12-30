@@ -23,7 +23,7 @@ package ada_main is
    GNAT_Version_Address : constant System.Address := GNAT_Version'Address;
    pragma Export (C, GNAT_Version_Address, "__gnat_version_address");
 
-   Ada_Main_Program_Name : constant String := "_ada_great_circle_distance" & ASCII.NUL;
+   Ada_Main_Program_Name : constant String := "_ada_aviation_tools" & ASCII.NUL;
    pragma Export (C, Ada_Main_Program_Name, "__gnat_ada_main_program_name");
 
    procedure adainit;
@@ -40,8 +40,8 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#3943292a#;
-   pragma Export (C, u00001, "great_circle_distanceB");
+   u00001 : constant Version_32 := 16#5757fb5d#;
+   pragma Export (C, u00001, "aviation_toolsB");
    u00002 : constant Version_32 := 16#30305195#;
    pragma Export (C, u00002, "system__standard_libraryB");
    u00003 : constant Version_32 := 16#6278fccd#;
@@ -298,24 +298,54 @@ package ada_main is
    pragma Export (C, u00128, "system__val_llfS");
    u00129 : constant Version_32 := 16#46895504#;
    pragma Export (C, u00129, "system__exn_llfS");
-   u00130 : constant Version_32 := 16#03e83d1c#;
-   pragma Export (C, u00130, "ada__numerics__elementary_functionsB");
-   u00131 : constant Version_32 := 16#d250ebd1#;
-   pragma Export (C, u00131, "ada__numerics__elementary_functionsS");
-   u00132 : constant Version_32 := 16#edf015bc#;
-   pragma Export (C, u00132, "ada__numerics__aux_floatS");
-   u00133 : constant Version_32 := 16#effcb9fc#;
-   pragma Export (C, u00133, "ada__numerics__aux_linker_optionsS");
-   u00134 : constant Version_32 := 16#8272e858#;
-   pragma Export (C, u00134, "ada__numerics__aux_long_floatS");
-   u00135 : constant Version_32 := 16#d273669e#;
-   pragma Export (C, u00135, "ada__numerics__aux_long_long_floatS");
-   u00136 : constant Version_32 := 16#33fcdf18#;
-   pragma Export (C, u00136, "ada__numerics__aux_short_floatS");
-   u00137 : constant Version_32 := 16#8f2423cb#;
-   pragma Export (C, u00137, "system__memoryB");
-   u00138 : constant Version_32 := 16#68e2c74e#;
-   pragma Export (C, u00138, "system__memoryS");
+   u00130 : constant Version_32 := 16#f64b89a4#;
+   pragma Export (C, u00130, "ada__integer_text_ioB");
+   u00131 : constant Version_32 := 16#b4dc53db#;
+   pragma Export (C, u00131, "ada__integer_text_ioS");
+   u00132 : constant Version_32 := 16#b981d8aa#;
+   pragma Export (C, u00132, "system__img_biuS");
+   u00133 : constant Version_32 := 16#f4df1f74#;
+   pragma Export (C, u00133, "system__img_llbS");
+   u00134 : constant Version_32 := 16#3ab08e6e#;
+   pragma Export (C, u00134, "system__img_lliS");
+   u00135 : constant Version_32 := 16#832eea06#;
+   pragma Export (C, u00135, "system__img_lllbS");
+   u00136 : constant Version_32 := 16#c9d8ed88#;
+   pragma Export (C, u00136, "system__img_llliS");
+   u00137 : constant Version_32 := 16#895af30a#;
+   pragma Export (C, u00137, "system__img_lllwS");
+   u00138 : constant Version_32 := 16#a8ed6a7f#;
+   pragma Export (C, u00138, "system__img_llwS");
+   u00139 : constant Version_32 := 16#865b6398#;
+   pragma Export (C, u00139, "system__img_wiuS");
+   u00140 : constant Version_32 := 16#ce5f50f9#;
+   pragma Export (C, u00140, "system__val_intS");
+   u00141 : constant Version_32 := 16#39f8db91#;
+   pragma Export (C, u00141, "system__val_unsS");
+   u00142 : constant Version_32 := 16#111e58d8#;
+   pragma Export (C, u00142, "system__val_lliS");
+   u00143 : constant Version_32 := 16#c1a0d3c0#;
+   pragma Export (C, u00143, "system__val_llliS");
+   u00144 : constant Version_32 := 16#7a141c22#;
+   pragma Export (C, u00144, "system__val_llluS");
+   u00145 : constant Version_32 := 16#03e83d1c#;
+   pragma Export (C, u00145, "ada__numerics__elementary_functionsB");
+   u00146 : constant Version_32 := 16#d250ebd1#;
+   pragma Export (C, u00146, "ada__numerics__elementary_functionsS");
+   u00147 : constant Version_32 := 16#edf015bc#;
+   pragma Export (C, u00147, "ada__numerics__aux_floatS");
+   u00148 : constant Version_32 := 16#effcb9fc#;
+   pragma Export (C, u00148, "ada__numerics__aux_linker_optionsS");
+   u00149 : constant Version_32 := 16#8272e858#;
+   pragma Export (C, u00149, "ada__numerics__aux_long_floatS");
+   u00150 : constant Version_32 := 16#d273669e#;
+   pragma Export (C, u00150, "ada__numerics__aux_long_long_floatS");
+   u00151 : constant Version_32 := 16#33fcdf18#;
+   pragma Export (C, u00151, "ada__numerics__aux_short_floatS");
+   u00152 : constant Version_32 := 16#8f2423cb#;
+   pragma Export (C, u00152, "system__memoryB");
+   u00153 : constant Version_32 := 16#68e2c74e#;
+   pragma Export (C, u00153, "system__memoryS");
 
    --  BEGIN ELABORATION ORDER
    --  ada%s
@@ -347,6 +377,12 @@ package ada_main is
    --  system.traceback_entries%s
    --  system.traceback_entries%b
    --  system.unsigned_types%s
+   --  system.img_biu%s
+   --  system.img_llb%s
+   --  system.img_lllb%s
+   --  system.img_lllw%s
+   --  system.img_llw%s
+   --  system.img_wiu%s
    --  system.wch_con%s
    --  system.wch_con%b
    --  system.wch_jis%s
@@ -425,6 +461,8 @@ package ada_main is
    --  system.val_flt%s
    --  system.val_lflt%s
    --  system.val_llf%s
+   --  system.val_lllu%s
+   --  system.val_llli%s
    --  system.val_llu%s
    --  ada.tags%s
    --  ada.tags%b
@@ -442,10 +480,17 @@ package ada_main is
    --  ada.finalization%s
    --  system.file_io%s
    --  system.file_io%b
+   --  system.val_lli%s
+   --  system.val_uns%s
+   --  system.val_int%s
    --  ada.text_io%s
    --  ada.text_io%b
    --  ada.text_io.generic_aux%s
    --  ada.text_io.generic_aux%b
+   --  system.img_lli%s
+   --  system.img_llli%s
+   --  ada.integer_text_io%s
+   --  ada.integer_text_io%b
    --  system.img_llu%s
    --  system.img_uns%s
    --  system.img_util%s
@@ -455,7 +500,7 @@ package ada_main is
    --  system.img_llf%s
    --  ada.float_text_io%s
    --  ada.float_text_io%b
-   --  great_circle_distance%b
+   --  aviation_tools%b
    --  END ELABORATION ORDER
 
 end ada_main;
