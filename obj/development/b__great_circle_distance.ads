@@ -40,7 +40,7 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#de36a6e1#;
+   u00001 : constant Version_32 := 16#a9147a03#;
    pragma Export (C, u00001, "aviation_toolsB");
    u00002 : constant Version_32 := 16#30305195#;
    pragma Export (C, u00002, "system__standard_libraryB");

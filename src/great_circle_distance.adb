@@ -45,6 +45,23 @@ procedure Aviation_Tools is
       return (Fuel_Capacity / Fuel_Consumption) * Speed;
    end Calculate_Fuel_Range;
 
+   -- Helper procedure for safe input
+   procedure Get_Safe_Input(Item : out Float; Prompt : String) is
+   begin
+      loop
+         Put(Prompt);
+         begin
+            Ada.Float_Text_IO.Get(Item);
+            exit; -- Exit the loop if the input is valid
+         exception
+            when Ada.Text_IO.Data_Error =>
+               Put_Line("Invalid input! Please enter a valid number.");
+               -- Clear the input buffer
+               Ada.Text_IO.Skip_Line;
+         end;
+      end loop;
+   end Get_Safe_Input;
+
    -- Main program variables
    Option : Integer;
 
@@ -55,7 +72,13 @@ begin
    Put_Line("1: Great Circle Distance (GCD)");
    Put_Line("2: Airplane Fuel Range Calculator");
    Put("Enter your choice (1 or 2): ");
-   Ada.Integer_Text_IO.Get(Option);
+   begin
+      Ada.Integer_Text_IO.Get(Option);
+   exception
+      when Ada.Text_IO.Data_Error =>
+         Put_Line("Invalid input! Please restart and enter a valid option (1 or 2).");
+         return;
+   end;
 
    if Option = 1 then
       -- Great Circle Distance
@@ -65,16 +88,10 @@ begin
       begin
          Put_Line("Great Circle Distance Calculator");
          Put_Line("--------------------------------");
-         Put_Line("Enter the latitude and longitude of the first point (in degrees):");
-         Put("Latitude: ");
-         Ada.Float_Text_IO.Get(Point1.Latitude);
-         Put("Longitude: ");
-         Ada.Float_Text_IO.Get(Point1.Longitude);
-         Put_Line("Enter the latitude and longitude of the second point (in degrees):");
-         Put("Latitude: ");
-         Ada.Float_Text_IO.Get(Point2.Latitude);
-         Put("Longitude: ");
-         Ada.Float_Text_IO.Get(Point2.Longitude);
+         Get_Safe_Input(Point1.Latitude, "Enter the latitude of the first point: ");
+         Get_Safe_Input(Point1.Longitude, "Enter the longitude of the first point: ");
+         Get_Safe_Input(Point2.Latitude, "Enter the latitude of the second point: ");
+         Get_Safe_Input(Point2.Longitude, "Enter the longitude of the second point: ");
          Distance := Haversine_Distance(Point1, Point2);
          Put("The great circle distance between the two points is: ");
          Put(Distance, Fore => 0, Aft => 2);
@@ -91,12 +108,9 @@ begin
       begin
          Put_Line("Airplane Fuel Range Calculator");
          Put_Line("--------------------------------");
-         Put_Line("Enter the fuel capacity of the airplane (in liters):");
-         Ada.Float_Text_IO.Get(Fuel_Capacity);
-         Put_Line("Enter the fuel consumption rate (in liters per hour):");
-         Ada.Float_Text_IO.Get(Fuel_Consumption);
-         Put_Line("Enter the cruising speed of the airplane (in kilometers per hour):");
-         Ada.Float_Text_IO.Get(Speed);
+         Get_Safe_Input(Fuel_Capacity, "Enter the fuel capacity of the airplane (in liters): ");
+         Get_Safe_Input(Fuel_Consumption, "Enter the fuel consumption rate (in liters per hour): ");
+         Get_Safe_Input(Speed, "Enter the cruising speed of the airplane (in kilometers per hour): ");
          Aircraft_Range := Calculate_Fuel_Range(Fuel_Capacity, Fuel_Consumption, Speed);
          Put("The maximum range of the airplane is: ");
          Put(Aircraft_Range, Fore => 0, Aft => 2);
