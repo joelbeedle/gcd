@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__great_circle_distance.o
+[PROJECT FILES]
+/Users/joelbeedle/ada/great_circle_distance/great_circle_distance.gpr
+20241230155824 d64c4323ba35f941aadb559bd1f987b5
+/Users/joelbeedle/ada/great_circle_distance/config/great_circle_distance_config.gpr
+20241230155824 ec042d1bdcf2f2b564ed7a6ee3f2f8bc
+[BOUND OBJECT FILES]
+/Users/joelbeedle/ada/great_circle_distance/obj/development/great_circle_distance.o
+[GENERATED SOURCE FILES]
+b__great_circle_distance.ads
+b__great_circle_distance.adb
+b__great_circle_distance.ali
+[RESULTING OPTIONS]
+-L/Users/joelbeedle/ada/great_circle_distance/obj/development/
+-L/Users/joelbeedle/ada/great_circle_distance/obj/development/
+-L/Users/joelbeedle/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/
+-static
+/Users/joelbeedle/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/adalib/libgnat.a
+-lm

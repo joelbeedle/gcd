@@ -1,0 +1,4 @@
+external:GREAT_CIRCLE_DISTANCE_LIBRARY_TYPE=default
+external:LIBRARY_TYPE=default
+profile:great_circle_distance=DEVELOPMENT
+switches:great_circle_distance=-Og,-fdata-sections,-ffunction-sections,-g,-gnatVa,-gnatW8,-gnatw.X,-gnatwa,-gnaty-d,-gnaty3,-gnatyA,-gnatyB,-gnatyI,-gnatyO,-gnatyS,-gnatya,-gnatyb,-gnatyc,-gnatye,-gnatyf,-gnatyh,-gnatyi,-gnatyk,-gnatyl,-gnatym,-gnatyn,-gnatyp,-gnatyr,-gnatyt,-gnatyu,-gnatyx
