@@ -1,0 +1,12 @@
+name = "great_circle_distance"
+description = "Calculates great circle distance between two points"
+version = "0.1.0-dev"
+
+authors = ["Joel Beedle"]
+maintainers = ["Joel Beedle <beedlejoel@gmail.com>"]
+maintainers-logins = ["joelbeedle"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+executables = ["great_circle_distance"]
