@@ -1,15 +1,18 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Float_Text_IO; use Ada.Float_Text_IO;
-with Ada.Integer_Text_IO; use Ada.Integer_Text_IO; -- Added for Integer inputs
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 with Ada.Numerics; use Ada.Numerics;
 with Ada.Numerics.Elementary_Functions; use Ada.Numerics.Elementary_Functions;
 
 procedure Aviation_Tools is
 
+   subtype Latitude_Type is Float range -90.0 .. 90.0;
+   subtype Longitude_Type is Float range -180.0 .. 180.0;
+
    -- Coordinate type
    type Coordinates is record
-      Latitude  : Float; -- In degrees
-      Longitude : Float; -- In degrees
+      Latitude  : Latitude_Type;
+      Longitude : Longitude_Type;
    end record;
 
    Earth_Radius_KM : constant Float := 6371.0; -- Earth's radius in kilometers
